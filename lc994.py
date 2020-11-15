@@ -15,7 +15,7 @@ class Solution:
         
         while q:
             u = q[0]
-            q = q[1:]
+            q.pop(0)
             for d in di:
                 v = [u[0]+d[0], u[1]+d[1]]
                 if v[0] < 0 or v[1] < 0 or v[0] == r or v[1] == c: 
