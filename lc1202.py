@@ -4,12 +4,19 @@
 #disjointset
 
 
+
 class Solution:
 
+    
+
+    
     def smallestStringWithSwaps(self, s: str, pairs: List[List[int]]) -> str:
             
-        rank = [1 for i in range(100000)]
-        parent = [i for i in range(100000)]
+        N = len(s)
+        
+        rank = [1 for i in range(N)]
+        parent = [i for i in range(N)]
+        
         
         def find(v):
             if parent[v] == v: return v
@@ -27,7 +34,7 @@ class Solution:
         for p in pairs:
             union(p[0], p[1])
         
-        N = len(s)
+        
         dict = {}
         for i in range(N):
             parent[i] = find(i)
@@ -41,11 +48,12 @@ class Solution:
 
         ans = ''
         
-        for i in range(len(s)):
+        for i in range(N):
             ans += dict[parent[i]][0]
             dict[parent[i]].pop(0)
         
         return ans
+
             
     
     
